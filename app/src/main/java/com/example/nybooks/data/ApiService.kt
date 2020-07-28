@@ -6,8 +6,11 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 object ApiService {
     private fun initRetrofit(): Retrofit {
 
+        // toda rota no final deve terminar com /
+        // .baseUrl("https://api.nytimes.com/svc/books/v3") <- esse linha tava assim, ai quebra
+
         return Retrofit.Builder()
-            .baseUrl("https://api.nytimes.com/svc/books/v3")
+            .baseUrl("https://api.nytimes.com/svc/books/v3/")
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
     }
